@@ -5,6 +5,7 @@ const $ = require('jquery');
 const myNameTag = '#myName';
 const yourNameTag = '#yourName';
 const sampleTag = '#sample';
+const textTag = '#text';
 const myNamesTag = '.myNames';
 const yourNamesTag = '.yourNames';
 
@@ -16,11 +17,32 @@ $(function(){
         console.log('押されたよ');
     });
 
+    //弊社入力イベント
     $(myNameTag).keypress((e)=>{
         if(e.which == 13){
             $.nameEvent.add($(myNameTag).val(), 'my');
         }
-    })
+    });
+
+    //御社入力イベント
+    $(yourNameTag).keypress((e)=>{
+        if(e.which == 13){
+            $.nameEvent.add($(yourNameTag).val(), 'you');
+        }
+    });
+
+    //文章投稿イベント
+    $(textTag).keypress((e)=>{
+        if(event.shiftKey){
+          if(e.keyCode === 13){
+             const contText = $(textTag).val();
+             const contName = $("input[name='names']:checked").val();
+             const contType = $("input[name='names']:checked").attr('class');
+             $.edit.Contribution(contText, contName, contType);
+             $(textTag).val("");
+          }
+        }
+    });
 
 
     $.nameEvent ={
@@ -28,12 +50,24 @@ $(function(){
         add: (name, camp)=>{
             switch(camp){
                 case 'my': 
-                    $(myNamesTag).append('<span class="radio"><input type="radio" name="names">'+name+ '</span>');
+                    $(myNamesTag).append('<li><span class="radio"><input type="radio" name="names" class="mine" value="'+name+'">'+name+ '</span></li>');
                     break;
                 case 'you': 
-
+                    $(yourNamesTag).append('<li><span class="radio"><input type="radio" name="names" class="yours" value="'+name+'">'+name+ '</span></li>');
                     break;
             }
+        }
+    }
+
+    //文章を投稿するイベント
+    $.edit = {
+        /**
+         * text: 投稿する文章
+         * name: 投稿者名
+         * type: 弊社or御社
+         */
+        Contribution: (text, name, type)=>{
+
         }
     }
 
