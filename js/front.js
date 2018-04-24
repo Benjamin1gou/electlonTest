@@ -6,6 +6,7 @@ const myNameTag = '#myName';
 const yourNameTag = '#yourName';
 const sampleTag = '#sample';
 const textTag = '#text';
+const areaTag = '#area'
 const myNamesTag = '.myNames';
 const yourNamesTag = '.yourNames';
 
@@ -67,7 +68,9 @@ $(function(){
          * type: 弊社or御社
          */
         Contribution: (text, name, type)=>{
-
+            const upText = text.replace(/\r?\n/g, '<br>');
+            const upName = name.slice( 0, 1 );
+            $(areaTag).append('<li><label>'+upName+'</label>'+upText+'<li>');
         }
     }
 
