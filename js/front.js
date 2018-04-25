@@ -70,7 +70,8 @@ $(function(){
         Contribution: (text, name, type)=>{
             const upText = text.replace(/\r?\n/g, '<br>');
             const upName = name.slice( 0, 1 );
-            $(areaTag).append('<li><label>'+upName+'</label>'+upText+'<li>');
+            $(areaTag).append('<p class="chat-talk"><span class="talk-icon">'+upName+'</span><span class="talk-content">'+upText+'</span>');
+            
         }
     }
 

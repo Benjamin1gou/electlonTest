@@ -89,22 +89,28 @@ li{
 
 #area {
     height: 75vh;
-    width: 100%;
     overflow-y: scroll;
 }
 
-#area li {
-    border-bottom: 1px #000 solid;
+#area tr {
+    display: block;
+    padding: 5px;
 }
 
 #area::-webkit-scrollbar {
     display: none;
 }
 
-#area label {
-    padding:10px;
-    color: #fff;
-    border-radius: 20px;
-    background-color: red;
-    font-family:Arial, sans-serif;
-}
+
+
+
+.upText{
+    display: block;
+    width: 70%;
+    position: relative;
+    padding: 10px;
+    background-color: #ffadad;
+    border: 2px solid #ca8888;
+    border-radius: 10px;         
+    font-family: Arial, sans-serif;
+  }
