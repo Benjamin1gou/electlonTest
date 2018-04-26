@@ -102,15 +102,11 @@ li{
 }
 
 
+#area tr{
+    
+    margin-bottom: 10px;
+}
 
-
-.upText{
-    display: block;
-    width: 70%;
-    position: relative;
-    padding: 10px;
-    background-color: #ffadad;
-    border: 2px solid #ca8888;
-    border-radius: 10px;         
-    font-family: Arial, sans-serif;
-  }
+#area  td{
+    padding-left: 5px;
+}
