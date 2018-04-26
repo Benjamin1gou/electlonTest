@@ -103,10 +103,17 @@ li{
 
 
 #area tr{
-    
+    font-family:Arial, sans-serif;
     margin-bottom: 10px;
 }
 
-#area  td{
+#area td{
+    font-family:Arial, sans-serif;
     padding-left: 5px;
+    font-size: 110%;
+}
+
+#area th{
+    font-size: 110%;
+    font-family:Arial, sans-serif;
 }
