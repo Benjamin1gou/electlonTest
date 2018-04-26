@@ -1,4 +1,5 @@
 const electron = require('electron');
+const {ipcMain} = require('electron')
 const app = electron.app;
 const BrowserWindow = electron.BrowserWindow;
 
@@ -15,4 +16,9 @@ app.on('ready', () => {
   mainWindow.on('closed', function() {
     mainWindow = null;
   });
+});
+
+//ipc受信検証
+ipcMain.on('test',function(event, text){
+  console.log(text);
 });

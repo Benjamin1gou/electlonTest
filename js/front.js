@@ -1,6 +1,6 @@
 'use strict';
 const $ = require('jquery');
-
+const {ipcRenderer} = require('electron')
 //タグの定義
 const myNameTag = '#myName';
 const yourNameTag = '#yourName';
@@ -41,6 +41,7 @@ $(function(){
              const contType = $("input[name='names']:checked").attr('class');
              $.edit.Contribution(contText, contName, contType);
              $(textTag).val("");
+             testEvent(contText);
           }
         }
     });
@@ -73,6 +74,11 @@ $(function(){
             $(areaTag).append('<tr><th>'+upName+':</th><td>'+upText+'</td></tr>');
             
         }
+    }
+
+    //ipc検証ファンクション
+    function testEvent(text){
+        ipcRenderer.send('test', text);
     }
 
 });
