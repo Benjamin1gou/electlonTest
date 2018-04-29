@@ -1,5 +1,6 @@
 const electron = require('electron');
-const {ipcMain} = require('electron')
+const {ipcMain} = require('electron');
+const fileControler = new fileControler(ipcMain);
 const app = electron.app;
 const BrowserWindow = electron.BrowserWindow;
 
@@ -18,7 +19,3 @@ app.on('ready', () => {
   });
 });
 
-//ipc受信検証
-ipcMain.on('test',function(event, text){
-  console.log(text);
-});
