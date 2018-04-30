@@ -21,6 +21,7 @@ $(function(){
     //弊社入力イベント
     $(myNameTag).keypress((e)=>{
         if(e.which == 13){
+            $(yourNameTag).val('');
             $.nameEvent.add($(myNameTag).val(), 'my');
         }
     });
@@ -28,6 +29,7 @@ $(function(){
     //御社入力イベント
     $(yourNameTag).keypress((e)=>{
         if(e.which == 13){
+            $(yourNameTag).val('');
             $.nameEvent.add($(yourNameTag).val(), 'you');
         }
     });
@@ -41,7 +43,7 @@ $(function(){
              const contType = $("input[name='names']:checked").attr('class');
              $.edit.Contribution(contText, contName, contType);
              $(textTag).val("");
-             testEvent(contText);
+             testEvent(contText, contName);
           }
         }
     });
@@ -77,8 +79,8 @@ $(function(){
     }
 
     //ipc検証ファンクション
-    function testEvent(text){
-        ipcRenderer.send('test', text);
+    function testEvent(text, name){
+        ipcRenderer.send('append', text, name);
     }
 
 });
