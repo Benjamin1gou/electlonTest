@@ -1,6 +1,7 @@
 const electron = require('electron');
 const {ipcMain} = require('electron');
-const fileControler = new fileControler(ipcMain);
+const fileControler = require("./js/file.js");
+const fileClass = new fileControler(ipcMain);
 const app = electron.app;
 const BrowserWindow = electron.BrowserWindow;
 
